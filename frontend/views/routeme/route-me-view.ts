@@ -5,6 +5,9 @@ import { View } from '../../views/view';
 @customElement('route-me-view')
 export class RouteMeView extends View {
   render() {
-    return html`<div>Content placeholder</div>`;
+    return html`
+      <div>Using View - This should be first!!!</div>
+      <slot></slot>
+    `;
   }
 }

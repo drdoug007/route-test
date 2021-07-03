@@ -17,13 +17,42 @@ export const views: ViewRoute[] = [
     title: 'About',
   },
   {
-    path: 'routeme',
+    path: 'routeme-view',
     component: 'route-me-view',
-    title: 'Route Me',
+    title: 'Route Me - View',
     action: async () => {
       await import('./views/routeme/route-me-view');
     },
+    children: [
+      {
+        path: '',
+        component: 'stack-view',
+        title: 'Stack',
+        action: async () => {
+          await import('./views/subviews/stack-view');
+        }
+      }
+    ] as ViewRoute[]
   },
+  {
+    path: 'routeme-layout',
+    component: 'route-me-layout',
+    title: 'Route Me - Layout',
+    action: async () => {
+      await import('./views/routeme/route-me-layout');
+    },
+    children: [
+      {
+        path: '',
+        component: 'stack-view',
+        title: 'Stack',
+        action: async () => {
+          await import('./views/subviews/stack-view');
+        }
+      }
+    ] as ViewRoute[]
+  },
+
 ];
 export const routes: ViewRoute[] = [
   {
